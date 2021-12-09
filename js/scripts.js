@@ -8,10 +8,10 @@ let pokemonList = [
 // lists the pokemon in the array with their height next to their name, and a comment about their relative size
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height <= 1){
-        document.write(<p>pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." </p>);
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." );
     }else if (pokemonList[i].height  > 1 && pokemonList[i].height < 3){
-        document.write(<p>pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon." </p>);
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon." );
     }else {
-        document.write(<p>pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that's a big Pokemon!" </p>);
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that's a big Pokemon!" );
     }
 }
