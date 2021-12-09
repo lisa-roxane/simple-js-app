@@ -5,13 +5,13 @@ let pokemonList = [
     {name: 'Charizard', height: 1.7, types: ['fire', 'flying']}
 ];
 
-// lists the pokemon in the array with their height next to their name
+// lists the pokemon in the array with their height next to their name, and a comment about their relative size
 for (let i = 0; i < pokemonList.length; i++) {
     if (pokemonList[i].height <= 1){
-        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon.");
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon. \n");
     }else if (pokemonList[i].height  > 1 && pokemonList[i].height < 3){
-        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon.");
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon. \n");
     }else {
-        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that's a big Pokemon!");
+        document.write(pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that's a big Pokemon! \n");
     }
 }
