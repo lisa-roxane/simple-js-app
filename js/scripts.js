@@ -51,7 +51,7 @@ return {
 // forEach function instead of for loop to iterate over the Pokémon in the pokemonList array in order to print details of each one
 // Create function to print name, height and comment of Pokémon in array
 function printArrayDetails(pokemonList) {
-    pokemonList.forEach(function(pokemon) {
+    pokemonList.forEach(function(pokemon, i) {
         if (pokemonList[i].height <= 1){
             document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." + "</p>");
         } else if (pokemonList[i].height  > 1 && pokemonList[i].height < 3){
@@ -61,6 +61,15 @@ function printArrayDetails(pokemonList) {
         }
     });
 }
+
+// New pokemon
+const ZenPokemon = {
+    name: 'Lisa',
+    height: 5.4,
+    types: ['water', 'poison']
+}
+
+pokemonRepository.add(ZenPokemon);
 
 // calls the printArrayDetails function for the pokemonList array inside the IIFE
 printArrayDetails(pokemonRepository.getAll());
