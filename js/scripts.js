@@ -49,12 +49,18 @@ return {
 })();
 
 // forEach function instead of for loop to iterate over the Pokémon in the pokemonList array in order to print details of each one
-pokemonList.forEach(function(pokemon) {
-    if (pokemonList[i].height <= 1){
-        document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." + "</p>");
-    } else if (pokemonList[i].height  > 1 && pokemonList[i].height < 3){
-        document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon." + "</p>" );
-    }else {
-        document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that\'s a big Pokemon!" + "</p>");
-    }
-});
+// Create function to print name, height and comment of Pokémon in array
+function printArrayDetails(pokemonList) {
+    pokemonList.forEach(function(pokemon) {
+        if (pokemonList[i].height <= 1){
+            document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." + "</p>");
+        } else if (pokemonList[i].height  > 1 && pokemonList[i].height < 3){
+            document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Your average size Pokemon." + "</p>" );
+        }else {
+            document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that\'s a big Pokemon!" + "</p>");
+        }
+    });
+}
+
+// calls the printArrayDetails function for the pokemonList array inside the IIFE
+printArrayDetails(pokemonRepository.getAll());
