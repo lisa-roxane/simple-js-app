@@ -41,7 +41,7 @@ function add(newPokemon) {
     pokemonList.push(newPokemon);
 }
 
-// IIFE returns the object below with key-value pairs associated with the functions above
+// IIFE returns the object below
 return {
     add: add,
     getAll: getAll
