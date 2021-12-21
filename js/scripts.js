@@ -1,8 +1,8 @@
 /* Create IIFE - wrap previous global variables (pokemonList) to make them local variables, 
 protecting them from changes */
-let pokemonRepository = (function () {
+var pokemonRepository = (function () {
 // Pokemon list - an array of Pokémon objects used throughout the web app
-let pokemonList = [
+let repository = [
     {
         name: 'Bulbasaur', 
         height: 7, 
@@ -31,26 +31,56 @@ for (let i = 0; i < pokemonList.length; i++) {
     }
 } */
 
-// Function to return all array items in pokemonList
-function getAll() {
-    return pokemonList;
+//Function to add new pokemon objects to array pokemonList
+/* function add(newPokemon) {
+    pokemonList.push(newPokemon);
+} */
+// Use the add function as displayed in exercise 1.6
+function add(pokemon) {
+    if (
+        typeof pokemon === "object" &&
+        "name" in pokemon &&
+        "height" in pokemon &&
+        "types" in pokemon
+    ) {
+        repository.push(pokemon);
+    } else {
+        console.log("pokemon is not correct");
+    }
 }
 
-//Function to add new pokemon objects to array pokemonList
-function add(newPokemon) {
-    pokemonList.push(newPokemon);
+// Function to return all array items in pokemonList
+function getAll() {
+    return repository;
+}
+
+function addListItem(pokemon){
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listPokemon = document.createElement("li");
+    let button = document.createElement("button");
+    button.innerText = "pokemon.name";
+    button.classList.add("button-class");
+    listPokemon.appendChild(button);
+    pokemonList.appendChild(listPokemon);
 }
 
 // IIFE returns the object below
 return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem
 };
 })();
 
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: "Pikachu", height: 0.3, types: ["electric"]});
+
+console.log(pokemonRepository.getAll());
+
 // forEach function instead of for loop to iterate over the Pokémon in the pokemonList array in order to print details of each one
 // Create function to print name, height and comment of Pokémon in array
-function printArrayDetails(pokemonList) {
+
+/*function printArrayDetails(pokemonList) {
     pokemonList.forEach(function(pokemon, i) {
         if (pokemonList[i].height <= 1){
             document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Just a little Pokemon." + "</p>");
@@ -60,8 +90,13 @@ function printArrayDetails(pokemonList) {
             document.write("<p>" + pokemonList[i].name + " (height:" + pokemonList[i].height + ") " + "- Wow, that\'s a big Pokemon!" + "</p>");
         }
     });
-}
+} */
 
+pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+});
+    
+/*
 // New pokemon
 const ZenPokemon = {
     name: 'Lisa',
@@ -72,4 +107,4 @@ const ZenPokemon = {
 pokemonRepository.add(ZenPokemon);
 
 // calls the printArrayDetails function for the pokemonList array inside the IIFE
-printArrayDetails(pokemonRepository.getAll());
+printArrayDetails(pokemonRepository.getAll()); */
